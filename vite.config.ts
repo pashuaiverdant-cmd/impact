@@ -4,6 +4,9 @@ import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
 export default defineConfig({
+  // ✅ IMPORTANT for Render static hosting
+  base: "/",
+
   plugins: [
     react(),
     runtimeErrorOverlay(),
@@ -19,18 +22,23 @@ export default defineConfig({
         ]
       : []),
   ],
+
+  // ✅ Your React app lives here
+  root: path.resolve(import.meta.dirname, "client"),
+
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "client", "src"),
       "@shared": path.resolve(import.meta.dirname, "shared"),
-      "@assets": path.resolve(import.meta.dirname, "attached_assets"),
     },
   },
-  root: path.resolve(import.meta.dirname, "client"),
+
+  // ✅ Build output MUST match Render Publish Directory
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
   },
+
   server: {
     fs: {
       strict: true,
