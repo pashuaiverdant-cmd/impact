@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { Link } from "wouter";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -16,9 +15,7 @@ export function Navigation() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -42,18 +39,23 @@ export function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <div 
+          <div
             onClick={() => scrollToSection("#home")}
-            className="flex items-center gap-2 cursor-pointer group"
+            className="flex items-center gap-2 cursor-pointer"
           >
-            <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors ${isScrolled ? "bg-primary text-white" : "bg-white text-primary"}`}>
-            <img
-    src="/img/logo.jpg"
-    alt="Verdant Impact Logo"
-    className="w-8 h-8 object-contain"
-  />
+            {/* Transparent logo container */}
+            <div className="w-10 h-10 flex items-center justify-center">
+              <img
+                src="/img/logo.jpg"
+                alt="Verdant Impact Logo"
+                className="w-8 h-8 object-contain"
+              />
             </div>
-            <span className={`text-xl font-display font-bold tracking-tight transition-colors ${isScrolled ? "text-primary" : "text-white"}`}>
+            <span
+              className={`text-xl font-display font-bold tracking-tight transition-colors ${
+                isScrolled ? "text-primary" : "text-white"
+              }`}
+            >
               Verdant Impact
             </span>
           </div>
@@ -71,14 +73,13 @@ export function Navigation() {
                 {link.name}
               </button>
             ))}
-            
             <a
               href="https://www.pashu.ai/"
               target="_blank"
               rel="noopener noreferrer"
               className={`px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 hover:scale-105 shadow-lg ${
-                isScrolled 
-                  ? "bg-primary text-white shadow-primary/25 hover:shadow-primary/40" 
+                isScrolled
+                  ? "bg-primary text-white shadow-primary/25 hover:shadow-primary/40"
                   : "bg-white text-primary shadow-black/10 hover:shadow-black/20"
               }`}
             >

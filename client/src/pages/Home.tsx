@@ -63,73 +63,83 @@ export default function Home() {
       <Navigation />
 
 
-      <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section
+  id="home"
+  className="relative min-h-screen flex items-center justify-center overflow-hidden"
+>
+  {/* Background */}
+  <div className="absolute inset-0 z-0">
+    <div className="absolute inset-0 bg-gradient-to-r from-secondary/90 via-secondary/70 to-secondary/40 z-10" />
+    <img
+      src="/img/banner.jpg"
+      alt="Sustainable Cattle Farming"
+      className="w-full h-full object-cover"
+    />
+  </div>
 
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-r from-secondary/90 via-secondary/70 to-secondary/40 z-10" />
+  {/* Content */}
+  <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24">
+    <div className="max-w-4xl mx-auto sm:mx-0 text-center sm:text-left">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6 break-words">
+          <span className="block sm:inline">Revolutionizing </span>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-300">
+            Bovine Genetics
+          </span>
+        </h1>
+      </motion.div>
 
-          <img
-            src="/img/banner.jpg"
-            alt="Sustainable Cattle Farming"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
-          <div className="max-w-4xl">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-[1.1] mb-8">
-                Revolutionizing <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-300">
-                  Bovine Genetics
-                </span>
-              </h1>
-            </motion.div>
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="text-base sm:text-lg md:text-xl text-white/90 mb-8 max-w-xl mx-auto sm:mx-0 leading-relaxed font-light"
+      >
+        Empowering climate-resilient livestock farming through community-led
+        commerce and technology.
+      </motion.p>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-xl md:text-2xl text-white/90 mb-10 max-w-2xl leading-relaxed font-light"
-            >
-              Empowering climate-resilient livestock farming through community-led commerce and technology.
-            </motion.p>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.4 }}
+        className="flex flex-col sm:flex-row gap-4 items-center sm:items-start"
+      >
+        <a
+          href="https://www.pashu.ai/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-primary text-white font-bold text-base sm:text-lg hover:bg-primary/90 hover:scale-105 transition-all shadow-xl shadow-primary/30"
+        >
+          Launch Pashu AI
+          <ArrowRight className="ml-2 w-5 h-5" />
+        </a>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-4"
-            >
-              <a
-                href="https://www.pashu.ai/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-primary text-white font-bold text-lg hover:bg-primary/90 hover:scale-105 transition-all shadow-xl shadow-primary/30"
-              >
-                Launch Pashu AI
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </a>
-              <button
-                onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-                className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-white/10 backdrop-blur-md text-white font-bold text-lg hover:bg-white/20 border border-white/20 transition-all"
-              >
-                Learn More
-              </button>
-            </motion.div>
-          </div>
-        </div>
+        <button
+          onClick={() =>
+            document
+              .getElementById("about")
+              ?.scrollIntoView({ behavior: "smooth" })
+          }
+          className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-white/10 backdrop-blur-md text-white font-bold text-base sm:text-lg hover:bg-white/20 border border-white/20 transition-all"
+        >
+          Learn More
+        </button>
+      </motion.div>
+    </div>
+  </div>
 
-        // Floating Abstract Shapes
-        <motion.div
-          animate={{ y: [0, -20, 0] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-20 right-20 w-64 h-64 bg-primary/20 rounded-full blur-3xl z-10 hidden lg:block"
-        />
-      </section>
+  {/* Floating Abstract Shapes */}
+  <motion.div
+    animate={{ y: [0, -20, 0] }}
+    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+    className="absolute bottom-20 right-20 w-64 h-64 bg-primary/20 rounded-full blur-3xl z-10 hidden lg:block"
+  />
+</section>
 
       {/* STATS SECTION */}
       <section ref={statsRef} className="py-20 bg-primary relative overflow-hidden">
@@ -157,65 +167,71 @@ export default function Home() {
           </div>
         </div>
       </section>
+{/* ABOUT SECTION */}
+<section id="about" className="py-24 md:py-32 bg-white">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="grid lg:grid-cols-2 gap-16 items-center">
+      {/* Left Content */}
+      <div>
+        <SectionHeading
+          label="Our Mission"
+          title="Technology for a Sustainable Future"
+          align="left"
+        />
+        <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+          Verdant Impact is an innovative agri-tech company revolutionizing livestock management through community-led, tech-enabled solutions for sustainable farming. Founded to empower climate-resilient bovine genetics, the company combines cutting-edge artificial intelligence, IoT technology, and blockchain to enhance genetic diversity, improve animal health monitoring, and boost productivity for local farmers.
+        </p>
+        <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+          Through its flagship products Pashu AI and Bharat Pashudhan, Verdant Impact serves over 600,000 farmer beneficiaries, promoting indigenous bovine genetics and sustainable farming practices. The company is committed to building resilient agricultural communities through innovation, technology, and a deep understanding of local farming needs.
+        </p>
 
-      {/* ABOUT SECTION */}
-      <section id="about" className="py-24 md:py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <SectionHeading
-                label="Our Mission"
-                title="Technology for a Sustainable Future"
-                align="left"
-              />
-              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                Verdant Impact is an innovative agri-tech company revolutionizing livestock management through community-led, tech-enabled solutions for sustainable farming. Founded to empower climate-resilient bovine genetics, the company combines cutting-edge artificial intelligence, IoT technology, and blockchain to enhance genetic diversity, improve animal health monitoring, and boost productivity for local farmers.
-              </p>
-              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                Through its flagship products Pashu AI and Bharat Pashudhan, Verdant Impact serves over 600,000 farmer beneficiaries, promoting indigenous bovine genetics and sustainable farming practices. The company is committed to building resilient agricultural communities through innovation, technology, and a deep understanding of local farming needs.
-              </p>
-
-              <div className="space-y-4">
-                {[
-                  "AI Analytics for Genetic Optimization",
-                  "Blockchain for Transparent Traceability",
-                  "IoT Sensors for Real-time Health Monitoring",
-
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-4 p-4 rounded-2xl bg-muted/50 border border-transparent hover:border-primary/20 transition-all">
-                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                      <CheckCircle2 className="w-5 h-5" />
-                    </div>
-                    <span className="font-semibold text-secondary">{item}</span>
-                  </div>
-                ))}
+        <div className="space-y-4">
+          {[
+            "AI Analytics for Genetic Optimization",
+            "Blockchain for Transparent Traceability",
+            "IoT Sensors for Real-time Health Monitoring",
+          ].map((item, i) => (
+            <div
+              key={i}
+              className="flex items-center gap-4 p-4 rounded-2xl bg-muted/50 border border-transparent hover:border-primary/20 transition-all"
+            >
+              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                <CheckCircle2 className="w-5 h-5" />
               </div>
+              <span className="font-semibold text-secondary">{item}</span>
             </div>
+          ))}
+        </div>
+      </div>
 
-            <div className="relative">
-              <div className="absolute inset-0 bg-primary/5 rounded-[2.5rem] transform rotate-3 scale-105" />
-              {/* Farmers collaborating */}
-              <img
-                src="/img/img11.jpg "
-                alt="Farmers collaborating"
-                className="relative rounded-[2rem] shadow-2xl w-full object-cover aspect-[4/5]"
-              />
+      {/* Right Image */}
+      <div className="relative">
+        {/* Background accent */}
+        <div className="absolute inset-0 bg-primary/5 rounded-[2.5rem] transform rotate-3 scale-105" />
 
-              <div className="absolute -bottom-8 -left-8 bg-white p-6 rounded-2xl shadow-xl border border-gray-100 max-w-xs animate-bounce-slow hidden md:block">
-                <div className="flex items-center gap-4 mb-3">
-                  <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600">
-                    <Leaf className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold text-gray-900">98%</div>
-                    <div className="text-sm text-gray-500 font-medium">Farmer Satisfaction</div>
-                  </div>
-                </div>
-              </div>
+        {/* Main Image */}
+        <img
+          src="/img/img11.jpg"
+          alt="Farmers collaborating"
+          className="relative rounded-[2rem] shadow-2xl w-full object-cover aspect-[4/5]"
+        />
+
+        {/* Farmer Satisfaction Card */}
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 md:-bottom-8 md:-left-8 md:translate-x-0 bg-white p-6 rounded-2xl shadow-xl border border-gray-100 max-w-xs w-[90%] animate-bounce-slow">
+          <div className="flex items-center gap-4 mb-3">
+            <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+              <Leaf className="w-6 h-6" />
+            </div>
+            <div>
+              <div className="text-2xl font-bold text-gray-900">98%</div>
+              <div className="text-sm text-gray-500 font-medium">Farmer Satisfaction</div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* SOLUTIONS SECTION */}
       <section id="solutions" className="py-24 bg-muted/30">
